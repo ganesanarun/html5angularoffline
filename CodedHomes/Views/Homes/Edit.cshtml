@@ -1,0 +1,128 @@
+﻿@* https://gist.github.com/craigshoemaker/b742bf8a1ab7b74a83f8*@
+
+@{
+    ViewBag.Title = "New Home";
+}
+
+
+@section scripts {
+    <script src="~/Scripts/app/controllers/editController.js"></script>
+}
+
+<div class="container" data-ng-controller="editController">
+
+    <div class="alert alert-success" data-ng-show="showSuccessMessage">
+        <strong>Success!</strong> home saved.
+    </div>
+
+    <div class="alert alert-info" data-ng-show="showFillOutFormMessage">
+        <strong>Note:</strong> You need to fill out the form before attempting to save a new home.
+    </div>
+
+    <div class="row" data-ng-hide="showSuccessMessage">
+        <div class="col-sm-4">
+            @*<img data-ng-src="/images/homes/{{ (isOnline && home.imageName) || 'no-image-large.png'}}" class="img-responsive img-thumbnail" width="424" height="283" />*@
+            <img data-ng-src="/images/homes/no-image-large.png" class="img-responsive img-thumbnail" width="424" height="283" />
+            <input type="text" data-ng-model="home.imageName" data-ng-show="isOnline" placeholder="Image Name" class="form-control img-responsive" />
+        </div>
+        <div class="col-sm-6">
+            <form class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label for="streetAddress" class="col-sm-2 control-label">Street Address</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               data-ng-model="home.streetAddress"
+                               name="streetAddress"
+                               id="streetAddress"
+                               class="form-control"
+                               placeholder="Street Address" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-2 control-label">City</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               data-ng-model="home.city"
+                               name="city"
+                               id="city"
+                               class="form-control"
+                               placeholder="City" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
+                    <div class="col-sm-10">
+                        <input type="number"
+                               data-ng-model="home.zipCode"
+                               name="zipCode"
+                               id="zipCode"
+                               class="form-control"
+                               placeholder="Zip Code" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-sm-2 control-label">Price</label>
+                    <div class="col-sm-10">
+                        <input type="number"
+                               data-ng-model="home.price"
+                               name="price"
+                               id="price"
+                               class="form-control"
+                               placeholder="Price" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bedrooms" class="col-sm-2 control-label">Bedrooms</label>
+                    <div class="col-sm-10">
+                        <input type="number"
+                               data-ng-model="home.bedrooms"
+                               name="bedrooms"
+                               id="bedrooms"
+                               class="form-control"
+                               placeholder="Bedrooms" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bathrooms" class="col-sm-2 control-label">Batrooms</label>
+                    <div class="col-sm-10">
+                        <input type="number"
+                               data-ng-model="home.bathrooms"
+                               name="bathrooms"
+                               id="bathrooms"
+                               class="form-control"
+                               placeholder="Bathrooms" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="squareFeet" class="col-sm-2 control-label">Square Feet</label>
+                    <div class="col-sm-10">
+                        <input type="number"
+                               data-ng-model="home.squareFeet"
+                               name="squareFeet"
+                               id="squareFeet"
+                               class="form-control"
+                               placeholder="Square Feet" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="squareFeet" class="col-sm-2 control-label">Notes</label>
+                    <div class="col-sm-10">
+                        <textarea data-ng-model="home.notes"
+                                  name="notes"
+                                  id="notes"
+                                  class="form-control"
+                                  placeholder="Notes"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="reset" data-ng-click="cancel()" value="Cancel" class="btn btn-link" />
+                        <input type="button" data-ng-click="save()" value="Save" class="btn btn-default btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

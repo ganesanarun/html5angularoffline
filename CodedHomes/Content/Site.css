@@ -1,0 +1,56 @@
+﻿body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar {
+    background-color: #fff;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    -webkit-box-shadow: 0 0 5px 2px #ccc;
+    box-shadow: 0 0 5px 2px #ccc;
+}
+
+    .navbar .logo {
+        margin-right: 15px;
+    }
+
+.push-top-down-sm {
+    margin-top: 1.5em;
+}
+
+.home-list-item {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #eee;
+}
+
+.offline-ui {
+    z-index: 100000;
+}
+
+#sync-container {
+    position: fixed;
+    bottom: -25px;
+    width: 350px;
+    left: 15px;
+    z-index: 10000;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

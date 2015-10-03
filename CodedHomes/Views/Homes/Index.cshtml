@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Homes List";
+}
+
+@section scripts {
+    <script src="~/Scripts/app/controllers/homesController.js"></script>
+}
+
+<section data-ng-controller="homesController" data-ng-cloak>
+    <div data-ng-hide="showList">
+        <img src="/images/loader.gif" alt="loading..." title="loading..." />
+    </div>
+    <div class="container" data-ng-show="showList">
+        <div class="alert alert-danger" data-ng-show="error">{{error}}</div>
+        <div class="alert alert-info" data-ng-show="showEmptyListMessage">
+            <p>
+                There are no homes available to list at this time.
+                <a href="/homes/new">Perhaps you would like enter a new one?</a>
+            </p>
+        </div>
+        <div class="row home-list-item" data-ng-repeat="home in homes">
+            <div class="col-sm-4">
+                <img data-ng-src="/images/homes/{{(isOnline && home.imageName) || 'no-image-large.png'}}"
+                     class="img-responsive img-thumbnail" />
+            </div>
+            <div class="col-sm-8">
+                <address>
+                    <div class="h2">{{home.streetAddress}}</div>
+                    {{home.city}}, CA {{home.zipCode}}
+                </address>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Price</td>
+                            <td>${{home.price|number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td>Bedrooms</td>
+                            <td>{{home.bedrooms}}</td>
+                        </tr>
+                        <tr>
+                            <td>Bathrooms</td>
+                            <td>{{home.bathrooms}}</td>
+                        </tr>
+                        <tr>
+                            <td>Square Feet</td>
+                            <td>{{home.squareFeet|number:0}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="lead">{{home.notes}}</div>
+                <button class="btn btn-link" data-ng-click="delete($index)">Delete</button>
+                <a data-ng-href="/homes/edit#{{home.id}}/{{home.streetAddress.split(' ').join('-')}}" class="btn btn-default">Edit</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,1 @@
+﻿// This is a placeholder of all scripts file in VS.
